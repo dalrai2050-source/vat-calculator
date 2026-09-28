@@ -112,7 +112,12 @@
   .btn.sm { padding: 8px 14px; font-size: 14px; border-radius: 10px; }
 
   /* 히어로 */
-  .hero { background: var(--hero); color: var(--hero-ink); padding: 88px 0 96px; }
+  .hero {
+    color: var(--hero-ink); padding: 88px 0 96px;
+    background:
+      linear-gradient(100deg, var(--hero) 0%, color-mix(in srgb, var(--hero) 92%, transparent) 45%, color-mix(in srgb, var(--hero) 55%, transparent) 100%),
+      url('img/hero-office.jpg') center / cover no-repeat;
+  }
   .eyebrow { font-size: 13px; font-weight: 700; letter-spacing: .08em; color: var(--accent); }
   .hero h1 { margin: 12px 0 0; font-size: clamp(30px, 5.2vw, 50px); line-height: 1.28; font-weight: 900; letter-spacing: -.02em; text-wrap: balance; }
   .hero h1 em { font-style: normal; color: #e9c27a; }
@@ -133,6 +138,11 @@
   .sec-head p { margin: 12px 0 0; color: var(--ink-dim); font-size: 16px; }
   .sec-head .eyebrow { color: var(--primary); }
 
+  .why-top { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; margin-bottom: 40px; }
+  .why-top .sec-head { margin-bottom: 0; }
+  .photo { display: block; width: 100%; height: auto; border-radius: 20px; object-fit: cover; box-shadow: var(--shadow); }
+  .why-top .photo { aspect-ratio: 3 / 2; }
+
   .grid { display: grid; gap: 16px; }
   .grid.g3 { grid-template-columns: repeat(3, minmax(0,1fr)); }
   .grid.g2 { grid-template-columns: repeat(2, minmax(0,1fr)); }
@@ -150,6 +160,7 @@
 
   /* 업무 */
   .service { display: flex; flex-direction: column; }
+  .service .thumb { margin: -26px -26px 20px; width: calc(100% + 52px); height: auto; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 18px 18px 0 0; display: block; }
   .service .tag { align-self: flex-start; font-size: 12px; font-weight: 700; color: var(--primary); background: var(--primary-bg); padding: 3px 10px; border-radius: 999px; margin-bottom: 14px; }
   .service ul { margin: 14px 0 0; padding: 0; list-style: none; display: grid; gap: 6px; font-size: 14.5px; }
   .service li { padding-left: 16px; position: relative; }
@@ -233,7 +244,7 @@
   @media (max-width: 900px) {
     nav.menu { display: none; }
     .grid.g3, .steps, .links { grid-template-columns: repeat(2, minmax(0,1fr)); }
-    .about, .contact { grid-template-columns: 1fr; }
+    .about, .contact, .why-top { grid-template-columns: 1fr; }
     .about .portrait { max-width: 260px; }
   }
   @media (max-width: 600px) {
@@ -286,9 +297,13 @@
   <!-- 강점 -->
   <section class="block" id="why">
     <div class="container">
-      <div class="sec-head">
-        <div class="eyebrow">WHY 선일</div>
-        <h2>세무는 한 번 맡기면 몇 년을 함께합니다.<br>그래서 사람이 바뀌지 않아야 합니다.</h2>
+      <div class="why-top">
+        <div class="sec-head">
+          <div class="eyebrow">WHY 선일</div>
+          <h2>세무는 한 번 맡기면 몇 년을 함께합니다.<br>그래서 사람이 바뀌지 않아야 합니다.</h2>
+          <p>사장님의 사업을 가장 잘 아는 사람은 오래 곁에서 지켜본 사람입니다. 선일세무회계는 대표 세무사와 오래 함께한 직원들이 한 팀이 되어 같은 자리에서 관리합니다.</p>
+        </div>
+        <img class="photo" src="img/consult.jpg" alt="책상에서 서류를 함께 보며 상담하는 모습" width="1100" height="734" loading="lazy">
       </div>
       <div class="grid g3">
         <div class="card feature">
@@ -320,18 +335,21 @@
       </div>
       <div class="grid g3">
         <div class="card service main">
+          <img class="thumb" src="img/svc-personal.jpg" alt="노트에 메모하며 장부를 정리하는 모습" width="800" height="534" loading="lazy">
           <span class="tag">핵심 업무</span>
           <h3>개인사업자 기장</h3>
           <p>장부 작성부터 신고까지 매달 챙기고, 절세할 수 있는 부분을 미리 알려 드립니다.</p>
           <ul><li>복식부기·간편장부 작성</li><li>부가가치세 신고</li><li>종합소득세 신고</li><li>원천세·4대보험 신고</li></ul>
         </div>
         <div class="card service main">
+          <img class="thumb" src="img/svc-corporate.jpg" alt="노트북 화면에 표시된 재무 분석 그래프" width="800" height="534" loading="lazy">
           <span class="tag">핵심 업무</span>
           <h3>법인 기장 · 결산</h3>
           <p>법인의 회계 처리와 결산, 세무조정까지 한 팀이 연속해서 관리합니다.</p>
           <ul><li>회계 처리 및 결산</li><li>법인세 신고·세무조정</li><li>부가가치세·원천세 신고</li><li>재무제표 작성</li></ul>
         </div>
         <div class="card service">
+          <img class="thumb" src="img/svc-advice.jpg" alt="상담을 마치고 악수하는 두 사람의 손" width="800" height="534" loading="lazy">
           <span class="tag">함께 하는 업무</span>
           <h3>창업 · 세무 상담</h3>
           <p>사업을 시작할 때와 중요한 결정을 앞둔 순간에 대표 세무사가 직접 상담합니다.</p>
