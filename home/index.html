@@ -73,6 +73,7 @@
   }
 
   * { box-sizing: border-box; }
+  [hidden] { display: none !important; }
   html { scroll-behavior: smooth; scroll-padding-top: 72px; }
   body {
     margin: 0;
@@ -201,8 +202,9 @@
   .about { display: grid; grid-template-columns: 300px 1fr; gap: 48px; align-items: center; }
   .portrait {
     aspect-ratio: 4 / 5; border-radius: 22px; background: linear-gradient(160deg, var(--primary-bg), var(--surface-2));
-    border: 1px solid var(--line); display: grid; place-items: center; color: var(--ink-dim); font-size: 14px; text-align: center; padding: 20px;
+    border: 1px solid var(--line); overflow: hidden; margin: 0;
   }
+  .portrait img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center top; }
   .about h2 { margin: 8px 0 0; font-size: clamp(24px, 3.4vw, 32px); font-weight: 900; line-height: 1.4; }
   .about .name { margin-top: 18px; font-weight: 700; font-size: 17px; }
   .about .name span { color: var(--ink-dim); font-weight: 500; font-size: 14.5px; margin-left: 6px; }
@@ -397,7 +399,7 @@
   <!-- 대표 소개 -->
   <section class="block" id="about">
     <div class="container about">
-      <div class="portrait">대표 세무사 사진<br>(추후 교체)</div>
+      <figure class="portrait"><img src="img/ceo.webp" alt="양재혁 대표 세무사" width="532" height="799" loading="lazy"></figure>
       <div>
         <div class="eyebrow" style="color:var(--primary)">대표 세무사</div>
         <h2>상담은 제가 직접 합니다.<br>사장님 이야기를 끝까지 듣겠습니다.</h2>
@@ -469,14 +471,15 @@
             <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.6a1 1 0 0 1-.25 1z"/></svg></span>
             <span><b>전화 상담</b><span data-bind="phone"></span></span>
           </a>
-          <a class="card channel kakao" data-kakao href="#contact" target="_blank" rel="noopener">
+          <a class="card channel kakao" data-kakao data-opt="kakao" href="#contact" target="_blank" rel="noopener">
             <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.5 3 2 6.6 2 11c0 2.8 1.9 5.3 4.7 6.7l-1 3.6c-.1.3.3.6.6.4l4.2-2.8c.5.1 1 .1 1.5.1 5.5 0 10-3.6 10-8S17.5 3 12 3z"/></svg></span>
             <span><b>카카오톡 상담</b><span>채널 추가 후 바로 문의</span></span>
           </a>
           <div class="card">
             <b>오시는 길</b>
             <p style="margin-top:6px" data-bind="address"></p>
-            <p class="hours" data-bind="hours"></p>
+            <p class="hours" data-bind="hours" data-opt="hours"></p>
+            <a class="btn ghost sm" data-map href="#" target="_blank" rel="noopener" style="margin-top:12px">네이버 지도에서 보기</a>
           </div>
         </div>
 
@@ -505,7 +508,7 @@
             <label><input type="checkbox" id="fAgree" required> 개인정보 수집·이용에 동의합니다.</label>
           </div>
           <button class="btn primary" type="submit" style="width:100%">상담 신청 보내기</button>
-          <p class="form-note">신청서를 보내면 메일 앱이 열리며, 작성하신 내용이 사무실 이메일로 전달됩니다.</p>
+          <p class="form-note" data-opt="email">신청서를 보내면 메일 앱이 열리며, 작성하신 내용이 사무실 이메일로 전달됩니다.</p>
           <div class="form-msg" id="formMsg" role="status"></div>
         </form>
       </div>
@@ -532,8 +535,8 @@
 <footer class="foot">
   <div class="container">
     <div class="brand">선일세무회계</div>
-    <p>대표 세무사 양재혁 · 사업자등록번호 <span data-bind="bizNo"></span></p>
-    <p><span data-bind="address"></span> · 전화 <span data-bind="phone"></span> · 이메일 <span data-bind="email"></span></p>
+    <p>대표 세무사 양재혁<span data-opt="bizNo"> · 사업자등록번호 <span data-bind="bizNo"></span></span></p>
+    <p><span data-bind="address"></span> · 전화 <span data-bind="phone"></span><span data-opt="email"> · 이메일 <span data-bind="email"></span></span></p>
     <p style="margin-top:10px">본 홈페이지의 내용은 일반적인 안내이며, 구체적인 사안은 상담을 통해 확인해 주시기 바랍니다.</p>
   </div>
 </footer>
@@ -545,20 +548,24 @@
 
 <div class="mbar" aria-label="빠른 상담">
   <a class="btn ghost" data-tel href="#contact">전화</a>
-  <a class="btn kakao" data-kakao href="#contact" target="_blank" rel="noopener">카카오톡</a>
+  <a class="btn kakao" data-kakao data-opt="kakao" href="#contact" target="_blank" rel="noopener">카카오톡</a>
   <a class="btn primary" href="#contact">상담 신청</a>
 </div>
 
 <script>
   // ▼ 사무실 정보: 이 부분만 실제 정보로 바꾸면 홈페이지 전체에 반영됩니다.
   const OFFICE = {
-    phone: '02-000-0000',                        // 대표 전화번호
-    email: 'office@example.com',                 // 상담 신청서를 받을 이메일
-    kakao: '',                                   // 카카오톡 채널 주소 (예: https://pf.kakao.com/_xxxxx)
-    address: '서울특별시 ○○구 ○○로 00, 0층',     // 사무실 주소
-    hours: '평일 09:00 – 18:00 (토·일·공휴일 휴무)',
-    bizNo: '000-00-00000',                       // 사업자등록번호
+    phone: '032-322-4001',                                  // 대표 전화번호
+    email: '',                                              // 상담 신청서를 받을 이메일
+    kakao: '',                                              // 카카오톡 채널 주소 (예: https://pf.kakao.com/_xxxxx)
+    address: '경기도 부천시 원미구 상일로 130, 6층 606호',  // 사무실 주소
+    hours: '',                                              // 상담 가능 시간 (예: 평일 09:00 – 18:00)
+    bizNo: '',                                              // 사업자등록번호
   };
+  // 비어 있는 항목(카카오톡, 이메일 등)은 화면에서 자동으로 숨깁니다.
+  document.querySelectorAll('[data-opt]').forEach(el => {
+    if (!OFFICE[el.dataset.opt]) el.hidden = true;
+  });
 
   document.querySelectorAll('[data-bind]').forEach(el => {
     el.textContent = OFFICE[el.dataset.bind] || '';
@@ -566,9 +573,11 @@
   document.querySelectorAll('[data-tel]').forEach(el => {
     el.href = 'tel:' + OFFICE.phone.replace(/[^0-9+]/g, '');
   });
+  document.querySelectorAll('[data-map]').forEach(el => {
+    el.href = 'https://map.naver.com/p/search/' + encodeURIComponent(OFFICE.address.split(',')[0]);
+  });
   document.querySelectorAll('[data-kakao]').forEach(el => {
     if (OFFICE.kakao) el.href = OFFICE.kakao;
-    else { el.removeAttribute('target'); el.href = '#contact'; }
   });
 
   const form = document.getElementById('consultForm');
@@ -590,8 +599,12 @@
       '',
       (d.get('message') || '').trim(),
     ].join('\n');
+    if (!OFFICE.email) {
+      msg.textContent = `온라인 신청 접수를 준비 중입니다. ${OFFICE.phone}로 전화 주시면 바로 상담해 드립니다.`;
+      return;
+    }
     location.href = `mailto:${OFFICE.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    msg.textContent = `메일 앱이 열리지 않으면 ${OFFICE.phone}로 전화 주시거나 카카오톡으로 문의해 주세요.`;
+    msg.textContent = `메일 앱이 열리지 않으면 ${OFFICE.phone}로 전화 주세요.`;
   });
 </script>
 </body>
