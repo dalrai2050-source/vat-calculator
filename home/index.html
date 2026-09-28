@@ -1,0 +1,540 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>선일세무회계 | 대표 세무사 직접 상담</title>
+<meta name="description" content="대표 세무사가 직접 상담하고, 10년 이상 장기근속한 직원이 바뀌지 않고 끝까지 담당합니다. 개인사업자·법인 기장 전문 선일세무회계.">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="선일세무회계">
+<meta property="og:title" content="선일세무회계 | 대표 세무사 직접 상담">
+<meta property="og:description" content="대표 세무사가 직접 상담하고, 10년 이상 함께한 직원이 바뀌지 않고 끝까지 담당합니다.">
+<meta property="og:image" content="https://dalrai2050-source.github.io/vat-calculator/og-image.png">
+<meta property="og:url" content="https://dalrai2050-source.github.io/vat-calculator/home/">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #faf7f0;
+    --surface: #ffffff;
+    --surface-2: #f3efe4;
+    --ink: #1b2430;
+    --ink-dim: #6b6455;
+    --line: #e6e0d1;
+    --primary: #135c8e;
+    --primary-ink: #ffffff;
+    --primary-bg: #e8f1f8;
+    --accent: #b27716;
+    --accent-bg: #fbf0dc;
+    --hero: #10324d;
+    --hero-ink: #f4efe4;
+    --hero-dim: #b9c6d2;
+    --shadow: 0 1px 2px rgba(27,36,48,.04), 0 8px 24px rgba(27,36,48,.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #15191f;
+      --surface: #1d2229;
+      --surface-2: #262c35;
+      --ink: #eee9de;
+      --ink-dim: #9a9484;
+      --line: #333a45;
+      --primary: #5fa8dd;
+      --primary-ink: #0e1116;
+      --primary-bg: #182631;
+      --accent: #e3b45c;
+      --accent-bg: #2c2416;
+      --hero: #0f1c28;
+      --hero-ink: #eee9de;
+      --hero-dim: #93a3b2;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.35);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #15191f;
+    --surface: #1d2229;
+    --surface-2: #262c35;
+    --ink: #eee9de;
+    --ink-dim: #9a9484;
+    --line: #333a45;
+    --primary: #5fa8dd;
+    --primary-ink: #0e1116;
+    --primary-bg: #182631;
+    --accent: #e3b45c;
+    --accent-bg: #2c2416;
+    --hero: #0f1c28;
+    --hero-ink: #eee9de;
+    --hero-dim: #93a3b2;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.35);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Noto Sans KR', system-ui, sans-serif;
+    line-height: 1.65;
+    word-break: keep-all;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  .container { width: 100%; max-width: 1080px; margin: 0 auto; padding-inline: 20px; }
+
+  /* 상단 바 */
+  header.top {
+    position: sticky; top: 0; z-index: 20;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  header.top .container { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 16px; }
+  .logo { font-weight: 900; font-size: 19px; text-decoration: none; letter-spacing: -.01em; }
+  .logo small { font-weight: 500; font-size: 12.5px; color: var(--ink-dim); margin-left: 6px; }
+  nav.menu { display: flex; gap: 22px; font-size: 14.5px; font-weight: 500; }
+  nav.menu a { text-decoration: none; color: var(--ink-dim); }
+  nav.menu a:hover { color: var(--ink); }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    padding: 11px 20px; border-radius: 12px; font-weight: 700; font-size: 15px;
+    text-decoration: none; border: 1px solid transparent; cursor: pointer; font-family: inherit;
+    transition: transform .12s ease, box-shadow .12s ease;
+  }
+  .btn:active { transform: translateY(1px); }
+  .btn.primary { background: var(--primary); color: var(--primary-ink); }
+  .btn.primary:hover { box-shadow: 0 6px 18px color-mix(in srgb, var(--primary) 35%, transparent); }
+  .btn.ghost { border-color: var(--line); background: var(--surface); color: var(--ink); }
+  .btn.sm { padding: 8px 14px; font-size: 14px; border-radius: 10px; }
+
+  /* 히어로 */
+  .hero { background: var(--hero); color: var(--hero-ink); padding: 88px 0 96px; }
+  .eyebrow { font-size: 13px; font-weight: 700; letter-spacing: .08em; color: var(--accent); }
+  .hero h1 { margin: 12px 0 0; font-size: clamp(30px, 5.2vw, 50px); line-height: 1.28; font-weight: 900; letter-spacing: -.02em; text-wrap: balance; }
+  .hero h1 em { font-style: normal; color: #e9c27a; }
+  .hero p.lead { margin: 20px 0 0; max-width: 600px; font-size: 17px; color: var(--hero-dim); }
+  .hero .cta { margin-top: 34px; display: flex; flex-wrap: wrap; gap: 12px; }
+  .hero .btn.primary { background: #e9c27a; color: #1b2430; }
+  .hero .btn.ghost { background: transparent; border-color: rgba(255,255,255,.28); color: var(--hero-ink); }
+  .hero .facts { margin-top: 56px; display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 12px; max-width: 720px; }
+  .hero .fact { border-top: 1px solid rgba(255,255,255,.18); padding-top: 14px; }
+  .hero .fact b { display: block; font-size: 22px; font-weight: 900; color: var(--hero-ink); }
+  .hero .fact span { font-size: 13.5px; color: var(--hero-dim); }
+
+  /* 섹션 공통 */
+  section.block { padding: 88px 0; }
+  section.block.alt { background: var(--surface-2); }
+  .sec-head { max-width: 640px; margin-bottom: 40px; }
+  .sec-head h2 { margin: 8px 0 0; font-size: clamp(24px, 3.4vw, 34px); line-height: 1.35; font-weight: 900; letter-spacing: -.015em; text-wrap: balance; }
+  .sec-head p { margin: 12px 0 0; color: var(--ink-dim); font-size: 16px; }
+  .sec-head .eyebrow { color: var(--primary); }
+
+  .grid { display: grid; gap: 16px; }
+  .grid.g3 { grid-template-columns: repeat(3, minmax(0,1fr)); }
+  .grid.g2 { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .card {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 18px;
+    padding: 26px; box-shadow: var(--shadow);
+  }
+  .card h3 { margin: 0; font-size: 18.5px; font-weight: 700; }
+  .card p { margin: 10px 0 0; color: var(--ink-dim); font-size: 15px; }
+  .num-badge {
+    width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center;
+    background: var(--primary-bg); color: var(--primary); font-weight: 900; margin-bottom: 18px;
+  }
+  .card.feature .num-badge { background: var(--accent-bg); color: var(--accent); }
+
+  /* 업무 */
+  .service { display: flex; flex-direction: column; }
+  .service .tag { align-self: flex-start; font-size: 12px; font-weight: 700; color: var(--primary); background: var(--primary-bg); padding: 3px 10px; border-radius: 999px; margin-bottom: 14px; }
+  .service ul { margin: 14px 0 0; padding: 0; list-style: none; display: grid; gap: 6px; font-size: 14.5px; }
+  .service li { padding-left: 16px; position: relative; }
+  .service li::before { content: ""; position: absolute; left: 2px; top: .7em; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+  .service.main { border-color: color-mix(in srgb, var(--primary) 40%, var(--line)); }
+
+  /* 대표 소개 */
+  .about { display: grid; grid-template-columns: 300px 1fr; gap: 48px; align-items: center; }
+  .portrait {
+    aspect-ratio: 4 / 5; border-radius: 22px; background: linear-gradient(160deg, var(--primary-bg), var(--surface-2));
+    border: 1px solid var(--line); display: grid; place-items: center; color: var(--ink-dim); font-size: 14px; text-align: center; padding: 20px;
+  }
+  .about h2 { margin: 8px 0 0; font-size: clamp(24px, 3.4vw, 32px); font-weight: 900; line-height: 1.4; }
+  .about .name { margin-top: 18px; font-weight: 700; font-size: 17px; }
+  .about .name span { color: var(--ink-dim); font-weight: 500; font-size: 14.5px; margin-left: 6px; }
+  .about blockquote { margin: 18px 0 0; padding: 0 0 0 18px; border-left: 3px solid var(--accent); color: var(--ink-dim); font-size: 16px; }
+
+  /* 절차 */
+  .steps { counter-reset: s; display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 16px; }
+  .step { position: relative; }
+  .step .n { font-size: 13px; font-weight: 700; color: var(--accent); }
+  .step h3 { margin: 6px 0 0; font-size: 17px; }
+  .step p { font-size: 14.5px; }
+
+  /* FAQ */
+  .faq { display: grid; gap: 10px; max-width: 800px; }
+  details { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 0 22px; }
+  summary { cursor: pointer; list-style: none; padding: 18px 0; font-weight: 700; font-size: 16px; display: flex; justify-content: space-between; gap: 12px; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "+"; color: var(--primary); font-weight: 900; font-size: 20px; line-height: 1; }
+  details[open] summary::after { content: "−"; }
+  details p { margin: 0 0 18px; color: var(--ink-dim); font-size: 15px; }
+
+  /* 상담 */
+  .contact { display: grid; grid-template-columns: 1fr 1.25fr; gap: 24px; align-items: start; }
+  .channels { display: grid; gap: 12px; }
+  .channel { display: flex; align-items: center; gap: 16px; text-decoration: none; }
+  .channel .ic { width: 46px; height: 46px; flex: none; border-radius: 14px; display: grid; place-items: center; background: var(--primary-bg); color: var(--primary); }
+  .channel .ic svg { width: 22px; height: 22px; }
+  .channel.kakao .ic { background: #fee500; color: #191919; }
+  .channel b { display: block; font-size: 16px; }
+  .channel span { font-size: 14px; color: var(--ink-dim); }
+  .hours { font-size: 14px; color: var(--ink-dim); margin-top: 6px; }
+
+  form .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  form label { display: block; font-size: 13px; font-weight: 700; color: var(--ink-dim); margin-bottom: 6px; }
+  form .f { margin-bottom: 14px; }
+  input, select, textarea {
+    width: 100%; font: inherit; font-size: 15px; color: var(--ink);
+    background: var(--surface-2); border: 1px solid var(--line); border-radius: 10px; padding: 11px 14px; outline: none;
+  }
+  input:focus, select:focus, textarea:focus { border-color: var(--primary); box-shadow: 0 0 0 3px var(--primary-bg); }
+  textarea { min-height: 110px; resize: vertical; }
+  .consent { background: var(--surface-2); border-radius: 12px; padding: 14px 16px; font-size: 13px; color: var(--ink-dim); margin-bottom: 14px; }
+  .consent label { display: flex; gap: 8px; align-items: flex-start; font-weight: 700; color: var(--ink); font-size: 14px; margin: 10px 0 0; }
+  .consent input { width: auto; margin-top: 4px; }
+  .form-note { font-size: 13px; color: var(--ink-dim); margin-top: 10px; }
+  .form-msg { display: none; margin-top: 12px; padding: 12px 14px; border-radius: 10px; background: var(--primary-bg); color: var(--ink); font-size: 14px; }
+
+  /* 도구 · 링크 */
+  .links { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 12px; }
+  .links a { text-decoration: none; }
+  .links .card { padding: 20px; height: 100%; }
+  .links .card b { display: block; font-size: 15.5px; }
+  .links .card span { font-size: 13.5px; color: var(--ink-dim); }
+
+  footer.foot { border-top: 1px solid var(--line); padding: 36px 0 110px; font-size: 13.5px; color: var(--ink-dim); }
+  footer.foot .brand { font-weight: 900; color: var(--ink); font-size: 16px; margin-bottom: 8px; }
+  footer.foot p { margin: 2px 0; }
+
+  /* 모바일 하단 고정 상담 바 */
+  .mbar {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; display: none;
+    padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+    background: var(--surface); border-top: 1px solid var(--line); box-shadow: 0 -6px 20px rgba(0,0,0,.08);
+    gap: 8px;
+  }
+  .mbar .btn { flex: 1; padding: 12px 8px; font-size: 14.5px; }
+  .mbar .btn.kakao { background: #fee500; color: #191919; }
+
+  @media (max-width: 900px) {
+    nav.menu { display: none; }
+    .grid.g3, .steps, .links { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    .about, .contact { grid-template-columns: 1fr; }
+    .about .portrait { max-width: 260px; }
+  }
+  @media (max-width: 600px) {
+    .container { padding-inline: 16px; }
+    header.top .btn { display: none; }
+    .hero { padding: 64px 0 72px; }
+    .hero .facts { grid-template-columns: 1fr; gap: 0; }
+    .hero .fact { padding: 12px 0; }
+    section.block { padding: 64px 0; }
+    .grid.g3, .grid.g2, .steps, .links, form .row2 { grid-template-columns: 1fr; }
+    .mbar { display: flex; }
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="container">
+    <a class="logo" href="#top">선일세무회계<small>양재혁 세무사</small></a>
+    <nav class="menu" aria-label="주요 메뉴">
+      <a href="#why">왜 선일인가</a>
+      <a href="#services">업무 분야</a>
+      <a href="#about">대표 세무사</a>
+      <a href="#process">진행 절차</a>
+      <a href="#faq">자주 묻는 질문</a>
+    </nav>
+    <a class="btn primary sm" href="#contact">상담 신청</a>
+  </div>
+</header>
+
+<main id="top">
+  <!-- 첫 화면 -->
+  <section class="hero">
+    <div class="container">
+      <div class="eyebrow">개인사업자 · 법인 기장 전문</div>
+      <h1>처음 상담한 세무사가,<br><em>10년 함께한 직원</em>과 끝까지 맡습니다.</h1>
+      <p class="lead">담당자가 바뀔 때마다 처음부터 다시 설명하셨나요? 선일세무회계는 대표 세무사가 직접 상담하고, 오래 손발을 맞춘 직원이 바뀌지 않고 사장님의 장부를 계속 관리합니다.</p>
+      <div class="cta">
+        <a class="btn primary" href="#contact">무료 상담 신청하기</a>
+        <a class="btn ghost" data-tel href="#contact">전화 상담 <span data-bind="phone"></span></a>
+      </div>
+      <div class="facts">
+        <div class="fact"><b>대표 세무사</b><span>모든 상담을 직접 진행</span></div>
+        <div class="fact"><b>10년 이상</b><span>직원들의 장기 근속</span></div>
+        <div class="fact"><b>담당자 고정</b><span>바뀌지 않는 전담 관리</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 강점 -->
+  <section class="block" id="why">
+    <div class="container">
+      <div class="sec-head">
+        <div class="eyebrow">WHY 선일</div>
+        <h2>세무는 한 번 맡기면 몇 년을 함께합니다.<br>그래서 사람이 바뀌지 않아야 합니다.</h2>
+      </div>
+      <div class="grid g3">
+        <div class="card feature">
+          <div class="num-badge">01</div>
+          <h3>대표 세무사 직접 상담</h3>
+          <p>첫 상담부터 중요한 결정까지 대표 세무사가 직접 듣고 답합니다. 실무자에게 넘겨지는 상담이 아닙니다.</p>
+        </div>
+        <div class="card feature">
+          <div class="num-badge">02</div>
+          <h3>10년 이상 장기근속 직원</h3>
+          <p>오랜 기간 함께 일해 온 직원들이 업무를 맡습니다. 경험이 쌓인 손으로 장부를 정확하게 챙깁니다.</p>
+        </div>
+        <div class="card feature">
+          <div class="num-badge">03</div>
+          <h3>바뀌지 않는 담당자</h3>
+          <p>직원 이동이 없어 사장님 사업의 흐름과 사정을 아는 사람이 해마다 같은 자리에서 관리합니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 업무 분야 -->
+  <section class="block alt" id="services">
+    <div class="container">
+      <div class="sec-head">
+        <div class="eyebrow">SERVICES</div>
+        <h2>업무 분야</h2>
+        <p>매달 반복되는 기장과 신고를 중심으로, 사업에 필요한 세무 업무를 한곳에서 처리합니다.</p>
+      </div>
+      <div class="grid g3">
+        <div class="card service main">
+          <span class="tag">핵심 업무</span>
+          <h3>개인사업자 기장</h3>
+          <p>장부 작성부터 신고까지 매달 챙기고, 절세할 수 있는 부분을 미리 알려 드립니다.</p>
+          <ul><li>복식부기·간편장부 작성</li><li>부가가치세 신고</li><li>종합소득세 신고</li><li>원천세·4대보험 신고</li></ul>
+        </div>
+        <div class="card service main">
+          <span class="tag">핵심 업무</span>
+          <h3>법인 기장 · 결산</h3>
+          <p>법인의 회계 처리와 결산, 세무조정까지 한 팀이 연속해서 관리합니다.</p>
+          <ul><li>회계 처리 및 결산</li><li>법인세 신고·세무조정</li><li>부가가치세·원천세 신고</li><li>재무제표 작성</li></ul>
+        </div>
+        <div class="card service">
+          <span class="tag">함께 하는 업무</span>
+          <h3>창업 · 세무 상담</h3>
+          <p>사업을 시작할 때와 중요한 결정을 앞둔 순간에 대표 세무사가 직접 상담합니다.</p>
+          <ul><li>사업자등록·개인/법인 선택 상담</li><li>세무 일정 안내</li><li>양도·상속·증여 상담</li><li>세무조사 대응</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 대표 소개 -->
+  <section class="block" id="about">
+    <div class="container about">
+      <div class="portrait">대표 세무사 사진<br>(추후 교체)</div>
+      <div>
+        <div class="eyebrow" style="color:var(--primary)">대표 세무사</div>
+        <h2>상담은 제가 직접 합니다.<br>사장님 이야기를 끝까지 듣겠습니다.</h2>
+        <div class="name">양재혁 <span>대표 세무사</span></div>
+        <blockquote>세무사무실을 옮기는 가장 큰 이유는 '담당자가 자꾸 바뀌어서'라고 합니다. 저희 사무실은 오래 함께한 직원들과 한 팀으로 일합니다. 한 번 맡겨 주시면 같은 사람이 계속 책임지고 관리하겠습니다.</blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- 진행 절차 -->
+  <section class="block alt" id="process">
+    <div class="container">
+      <div class="sec-head">
+        <div class="eyebrow">PROCESS</div>
+        <h2>상담부터 관리까지, 이렇게 진행됩니다</h2>
+      </div>
+      <div class="steps">
+        <div class="card step"><div class="n">STEP 1</div><h3>상담 신청</h3><p>전화, 카카오톡, 상담 신청서 중 편한 방법으로 연락 주세요.</p></div>
+        <div class="card step"><div class="n">STEP 2</div><h3>대표 세무사 상담</h3><p>사업 현황을 듣고 필요한 업무와 예상 비용을 안내해 드립니다.</p></div>
+        <div class="card step"><div class="n">STEP 3</div><h3>자료 인계 · 수임</h3><p>기존 사무실 자료도 저희가 넘겨받아 정리합니다.</p></div>
+        <div class="card step"><div class="n">STEP 4</div><h3>전담 관리</h3><p>정해진 담당 직원이 매달 관리하고, 신고 전 대표 세무사가 검토합니다.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="block" id="faq">
+    <div class="container">
+      <div class="sec-head">
+        <div class="eyebrow">FAQ</div>
+        <h2>자주 묻는 질문</h2>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>지금 다른 세무사무실에 맡기고 있는데 옮길 수 있나요?</summary>
+          <p>네, 가능합니다. 기존 사무실에서 받아야 할 자료가 무엇인지 안내해 드리고, 인수인계에 필요한 절차는 저희가 함께 챙깁니다. 신고 기한을 고려해 옮기기 좋은 시점도 상담 때 말씀드립니다.</p>
+        </details>
+        <details>
+          <summary>기장료는 얼마인가요?</summary>
+          <p>업종, 매출 규모, 거래 건수, 직원 수에 따라 달라집니다. 상담 때 사업 현황을 들은 뒤 정확한 금액을 안내해 드립니다.</p>
+        </details>
+        <details>
+          <summary>정말 대표 세무사가 직접 상담하나요?</summary>
+          <p>네. 첫 상담과 중요한 세무 판단은 대표 세무사가 직접 합니다. 일상적인 자료 요청과 처리는 전담 직원이 맡고, 신고 전에는 대표 세무사가 검토합니다.</p>
+        </details>
+        <details>
+          <summary>사무실에 꼭 방문해야 하나요?</summary>
+          <p>방문하지 않으셔도 됩니다. 전화, 카카오톡, 이메일로 상담과 자료 전달이 모두 가능합니다. 직접 만나 상담을 원하시면 미리 예약해 주세요.</p>
+        </details>
+        <details>
+          <summary>이제 막 창업하려는데 언제 상담하는 게 좋나요?</summary>
+          <p>사업자등록 전에 상담하시는 것을 권합니다. 개인사업자와 법인 중 어떤 형태가 맞는지, 과세 유형은 어떻게 할지에 따라 이후 세금이 달라질 수 있습니다.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 상담 -->
+  <section class="block alt" id="contact">
+    <div class="container">
+      <div class="sec-head">
+        <div class="eyebrow">CONTACT</div>
+        <h2>상담 신청</h2>
+        <p>편한 방법으로 연락 주세요. 대표 세무사가 직접 연락드립니다.</p>
+      </div>
+      <div class="contact">
+        <div class="channels">
+          <a class="card channel" data-tel href="#contact">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.6a1 1 0 0 1-.25 1z"/></svg></span>
+            <span><b>전화 상담</b><span data-bind="phone"></span></span>
+          </a>
+          <a class="card channel kakao" data-kakao href="#contact" target="_blank" rel="noopener">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.5 3 2 6.6 2 11c0 2.8 1.9 5.3 4.7 6.7l-1 3.6c-.1.3.3.6.6.4l4.2-2.8c.5.1 1 .1 1.5.1 5.5 0 10-3.6 10-8S17.5 3 12 3z"/></svg></span>
+            <span><b>카카오톡 상담</b><span>채널 추가 후 바로 문의</span></span>
+          </a>
+          <div class="card">
+            <b>오시는 길</b>
+            <p style="margin-top:6px" data-bind="address"></p>
+            <p class="hours" data-bind="hours"></p>
+          </div>
+        </div>
+
+        <form class="card" id="consultForm" novalidate>
+          <div class="row2">
+            <div class="f"><label for="fName">성함 · 상호</label><input id="fName" name="name" required autocomplete="name"></div>
+            <div class="f"><label for="fPhone">연락처</label><input id="fPhone" name="phone" type="tel" required inputmode="tel" autocomplete="tel" placeholder="010-0000-0000"></div>
+          </div>
+          <div class="row2">
+            <div class="f">
+              <label for="fType">사업자 유형</label>
+              <select id="fType" name="type">
+                <option>개인사업자</option><option>법인</option><option>창업 예정</option><option>기타</option>
+              </select>
+            </div>
+            <div class="f">
+              <label for="fTopic">상담 내용</label>
+              <select id="fTopic" name="topic">
+                <option>기장 신규 의뢰</option><option>세무사무실 변경</option><option>신고 대리</option><option>창업 상담</option><option>기타 세무 상담</option>
+              </select>
+            </div>
+          </div>
+          <div class="f"><label for="fMsg">문의 내용 (선택)</label><textarea id="fMsg" name="message" placeholder="업종, 대략적인 매출 규모, 궁금한 점을 적어 주시면 더 정확히 안내해 드립니다."></textarea></div>
+          <div class="consent">
+            수집 항목: 성함·상호, 연락처, 문의 내용 · 이용 목적: 세무 상담 회신 · 보유 기간: 상담 완료 후 1년. 동의를 거부하실 수 있으며, 이 경우 상담 신청서 대신 전화나 카카오톡으로 문의해 주세요.
+            <label><input type="checkbox" id="fAgree" required> 개인정보 수집·이용에 동의합니다.</label>
+          </div>
+          <button class="btn primary" type="submit" style="width:100%">상담 신청 보내기</button>
+          <p class="form-note">신청서를 보내면 메일 앱이 열리며, 작성하신 내용이 사무실 이메일로 전달됩니다.</p>
+          <div class="form-msg" id="formMsg" role="status"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- 세무 도구 · 바로가기 -->
+  <section class="block" id="links">
+    <div class="container">
+      <div class="sec-head">
+        <div class="eyebrow">TOOLS</div>
+        <h2>세무 도구 · 바로가기</h2>
+      </div>
+      <div class="links">
+        <a href="../"><div class="card"><b>부가세 계산기</b><span>합계금액에서 공급가액·부가세 나누기</span></div></a>
+        <a href="https://hometax.go.kr" target="_blank" rel="noopener"><div class="card"><b>국세청 홈택스</b><span>신고·납부·증명 발급</span></div></a>
+        <a href="https://www.wetax.go.kr" target="_blank" rel="noopener"><div class="card"><b>위택스</b><span>지방세 신고·납부</span></div></a>
+        <a href="https://www.law.go.kr" target="_blank" rel="noopener"><div class="card"><b>국가법령정보센터</b><span>세법 조문 확인</span></div></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="container">
+    <div class="brand">선일세무회계</div>
+    <p>대표 세무사 양재혁 · 사업자등록번호 <span data-bind="bizNo"></span></p>
+    <p><span data-bind="address"></span> · 전화 <span data-bind="phone"></span> · 이메일 <span data-bind="email"></span></p>
+    <p style="margin-top:10px">본 홈페이지의 내용은 일반적인 안내이며, 구체적인 사안은 상담을 통해 확인해 주시기 바랍니다.</p>
+  </div>
+</footer>
+
+<div class="mbar" aria-label="빠른 상담">
+  <a class="btn ghost" data-tel href="#contact">전화</a>
+  <a class="btn kakao" data-kakao href="#contact" target="_blank" rel="noopener">카카오톡</a>
+  <a class="btn primary" href="#contact">상담 신청</a>
+</div>
+
+<script>
+  // ▼ 사무실 정보: 이 부분만 실제 정보로 바꾸면 홈페이지 전체에 반영됩니다.
+  const OFFICE = {
+    phone: '02-000-0000',                        // 대표 전화번호
+    email: 'office@example.com',                 // 상담 신청서를 받을 이메일
+    kakao: '',                                   // 카카오톡 채널 주소 (예: https://pf.kakao.com/_xxxxx)
+    address: '서울특별시 ○○구 ○○로 00, 0층',     // 사무실 주소
+    hours: '평일 09:00 – 18:00 (토·일·공휴일 휴무)',
+    bizNo: '000-00-00000',                       // 사업자등록번호
+  };
+
+  document.querySelectorAll('[data-bind]').forEach(el => {
+    el.textContent = OFFICE[el.dataset.bind] || '';
+  });
+  document.querySelectorAll('[data-tel]').forEach(el => {
+    el.href = 'tel:' + OFFICE.phone.replace(/[^0-9+]/g, '');
+  });
+  document.querySelectorAll('[data-kakao]').forEach(el => {
+    if (OFFICE.kakao) el.href = OFFICE.kakao;
+    else { el.removeAttribute('target'); el.href = '#contact'; }
+  });
+
+  const form = document.getElementById('consultForm');
+  const msg = document.getElementById('formMsg');
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const d = new FormData(form);
+    const name = (d.get('name') || '').trim();
+    const phone = (d.get('phone') || '').trim();
+    msg.style.display = 'block';
+    if (!name || !phone) { msg.textContent = '성함과 연락처를 입력해 주세요.'; return; }
+    if (!document.getElementById('fAgree').checked) { msg.textContent = '개인정보 수집·이용에 동의해 주셔야 신청서를 보낼 수 있습니다.'; return; }
+    const subject = `[홈페이지 상담 신청] ${name} / ${d.get('topic')}`;
+    const body = [
+      `성함·상호: ${name}`,
+      `연락처: ${phone}`,
+      `사업자 유형: ${d.get('type')}`,
+      `상담 내용: ${d.get('topic')}`,
+      '',
+      (d.get('message') || '').trim(),
+    ].join('\n');
+    location.href = `mailto:${OFFICE.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    msg.textContent = `메일 앱이 열리지 않으면 ${OFFICE.phone}로 전화 주시거나 카카오톡으로 문의해 주세요.`;
+  });
+</script>
+</body>
+</html>
