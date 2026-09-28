@@ -6,7 +6,7 @@ Unsplash 라이선스(https://unsplash.com/license)에 따라 상업적 용도�
 
 | 파일 | 원본 |
 | --- | --- |
-| hero-office.jpg | https://images.unsplash.com/photo-1497215728101-856f4ea42174 |
+| hero-hanok.jpg | https://images.unsplash.com/photo-1548115184-bc6544d06a58 |
 | consult.jpg | https://images.unsplash.com/photo-1454165804606-c3d57bc86b40 |
 | svc-personal.jpg | https://images.unsplash.com/photo-1434030216411-0b793f4b4173 |
 | svc-corporate.jpg | https://images.unsplash.com/photo-1460925895917-afdab827c52f |
