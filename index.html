@@ -199,6 +199,29 @@
   }
   .card.feature .num-badge { background: var(--accent-bg); color: var(--accent); }
 
+  /* 장기근속 비교 */
+  section.block.dark { background: var(--hero); color: #f4efe4; }
+  section.block.dark .sec-head .eyebrow { color: #e9c27a; }
+  section.block.dark .sec-head p { color: rgba(244,239,228,.78); }
+  .compare-wrap { background: var(--surface); color: var(--ink); border-radius: 20px; box-shadow: 0 18px 40px rgba(0,0,0,.25); overflow: hidden; }
+  table.compare { width: 100%; border-collapse: collapse; font-size: 15px; }
+  table.compare th, table.compare td { padding: 18px 22px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); }
+  table.compare tr:last-child td { border-bottom: 0; }
+  table.compare thead th { font-size: 14px; font-weight: 700; color: var(--ink-dim); background: var(--surface-2); }
+  table.compare thead th.us { background: var(--primary); color: var(--primary-ink); }
+  table.compare tbody th { width: 18%; font-weight: 700; white-space: nowrap; }
+  table.compare td.them { width: 38%; color: var(--ink-dim); }
+  table.compare td.us { background: var(--primary-bg); font-weight: 500; }
+  table.compare td.us b { color: var(--primary); }
+  table.compare td { position: relative; padding-left: 52px; }
+  .mark { position: absolute; left: 22px; top: 20px; display: grid; place-items: center; width: 20px; height: 20px; border-radius: 50%; font-size: 12px; font-weight: 900; }
+  .mark.x { background: var(--surface-2); color: var(--ink-dim); }
+  .mark.o { background: var(--primary); color: var(--primary-ink); }
+  .compare-note { margin: 22px 0 0; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .compare-note .q { border-left: 3px solid #e9c27a; padding: 4px 0 4px 18px; font-size: 16px; line-height: 1.7; color: rgba(244,239,228,.9); }
+  .compare-note .q b { color: #fff; }
+  .compare-foot { margin-top: 14px; font-size: 12.5px; color: rgba(244,239,228,.6); }
+
   /* 업무 */
   .service { display: flex; flex-direction: column; }
   .service .thumb { margin: -26px -26px 20px; width: calc(100% + 52px); height: auto; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 18px 18px 0 0; display: block; }
@@ -301,6 +324,21 @@
     section.block { padding: 64px 0; }
     .grid.g3, .grid.g2, .steps, .links, form .row2 { grid-template-columns: 1fr; }
     .mbar { display: flex; }
+    table.compare thead { display: none; }
+    table.compare, table.compare tbody, table.compare tr, table.compare th, table.compare td { display: block; width: auto; }
+    table.compare tr { border-bottom: 1px solid var(--line); }
+    table.compare tr:last-child { border-bottom: 0; }
+    table.compare tbody th, table.compare td.them, table.compare td.us { width: auto; }
+    table.compare th, table.compare td { border-bottom: 0; padding: 6px 18px 6px 46px; }
+    table.compare tbody th { padding-left: 18px; }
+    .mark { left: 18px; top: 26px; }
+    table.compare td.us .mark { left: 14px; top: 32px; }
+    table.compare tbody th { padding-top: 18px; font-size: 16px; }
+    table.compare td.them { padding-bottom: 8px; }
+    table.compare td.us { margin: 0 12px 16px; padding: 12px 14px 12px 42px; border-radius: 12px; }
+    table.compare td::before { content: attr(data-label); display: block; font-size: 12px; font-weight: 700; color: var(--ink-dim); margin-bottom: 2px; }
+    table.compare td.us::before { color: var(--primary); }
+    .compare-note { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -311,6 +349,7 @@
     <a class="logo" href="#top">선일세무회계<small>양재혁 세무사</small></a>
     <nav class="menu" aria-label="주요 메뉴">
       <a href="#why">왜 선일인가</a>
+      <a href="#compare">장기근속</a>
       <a href="#services">업무 분야</a>
       <a href="#about">대표 세무사</a>
       <a href="#process">진행 절차</a>
@@ -369,6 +408,61 @@
           <p>직원 이동이 없어 사장님 사업의 흐름과 사정을 아는 사람이 해마다 같은 자리에서 관리합니다.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- 장기근속 비교 -->
+  <section class="block dark" id="compare">
+    <div class="container">
+      <div class="sec-head">
+        <div class="eyebrow">장기근속</div>
+        <h2>세무사무실의 실력은<br>결국 장부를 맡은 사람의 실력입니다.</h2>
+        <p>담당자가 바뀔 때마다 사장님은 사업 사정을 처음부터 다시 설명해야 합니다. 선일세무회계는 오래 함께한 직원이 같은 자리에서 계속 관리해서, 그 수고를 덜어 드립니다.</p>
+      </div>
+      <div class="compare-wrap">
+        <table class="compare">
+          <thead>
+            <tr><th scope="col">구분</th><th scope="col">담당자가 자주 바뀌면</th><th scope="col" class="us">선일세무회계</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">담당 직원</th>
+              <td class="them" data-label="담당자가 자주 바뀌면"><span class="mark x">✕</span>1~3년 안에 담당자가 바뀌는 일이 생깁니다</td>
+              <td class="us" data-label="선일세무회계"><span class="mark o">✓</span><b>10년 이상 근속한 직원</b>이 계속 담당합니다</td>
+            </tr>
+            <tr>
+              <th scope="row">사업 설명</th>
+              <td class="them" data-label="담당자가 자주 바뀌면"><span class="mark x">✕</span>담당자가 바뀔 때마다 업종·거래처·사정을 처음부터 다시 설명해야 합니다</td>
+              <td class="us" data-label="선일세무회계"><span class="mark o">✓</span>한 번 설명하시면 <b>몇 년이 지나도 기억하고</b> 관리합니다</td>
+            </tr>
+            <tr>
+              <th scope="row">인수인계</th>
+              <td class="them" data-label="담당자가 자주 바뀌면"><span class="mark x">✕</span>전임자 메모에 의존해 빠지는 내용이 생길 수 있습니다</td>
+              <td class="us" data-label="선일세무회계"><span class="mark o">✓</span>담당자가 그대로라 <b>인수인계 공백이 없습니다</b></td>
+            </tr>
+            <tr>
+              <th scope="row">업무 숙련도</th>
+              <td class="them" data-label="담당자가 자주 바뀌면"><span class="mark x">✕</span>경력이 짧은 직원이 맡게 될 수도 있습니다</td>
+              <td class="us" data-label="선일세무회계"><span class="mark o">✓</span><b>10년 넘게 쌓은 실무 경험</b>으로 장부와 신고를 처리합니다</td>
+            </tr>
+            <tr>
+              <th scope="row">문의 응대</th>
+              <td class="them" data-label="담당자가 자주 바뀌면"><span class="mark x">✕</span>새 담당자가 사정을 파악할 때까지 답이 늦어질 수 있습니다</td>
+              <td class="us" data-label="선일세무회계"><span class="mark o">✓</span>사정을 아는 담당자가 <b>바로 답합니다</b></td>
+            </tr>
+            <tr>
+              <th scope="row">최종 검토</th>
+              <td class="them" data-label="담당자가 자주 바뀌면"><span class="mark x">✕</span>사무실마다 다릅니다</td>
+              <td class="us" data-label="선일세무회계"><span class="mark o">✓</span>신고 전 <b>대표 세무사가 직접</b> 검토합니다</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="compare-note">
+        <p class="q"><b>"작년에 말씀드렸잖아요"</b>를 다시 하지 않으셔도 됩니다. 사장님 사업을 아는 사람이 올해도, 내년에도 같은 자리에 있습니다.</p>
+        <p class="q">오래 일한 직원은 <b>업종별 흐름과 놓치기 쉬운 공제</b>를 경험으로 압니다. 숙련된 손이 장부의 정확도를 만듭니다.</p>
+      </div>
+      <p class="compare-foot">※ 근속 기간은 선일세무회계 소속 직원 기준입니다.</p>
     </div>
   </section>
 
